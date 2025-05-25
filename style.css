@@ -1,0 +1,16 @@
+body { 
+    font-family: sans-serif; 
+    padding: 20px; background: #f0f0f0; 
+}
+
+textarea, input { 
+    width: 100%; margin-bottom: 10px; 
+}
+
+.dialogue-block { 
+    border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; background: white; 
+}
+
+.button-row { 
+    display: flex; gap: 10px; margin-bottom: 20px; 
+}
