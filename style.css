@@ -1,6 +1,7 @@
 body { 
     font-family: sans-serif; 
-    padding: 20px; background: #1a1a1a; 
+    padding: 20px; 
+    background: #1a1a1a; 
     color: white;
     clear: both;
 }
@@ -15,6 +16,7 @@ button{
 }
 
 textarea, input { 
+    font-family: sans-serif; 
     color: black;
     border: 1px lightgray solid;
     border-radius: 7px;
@@ -36,8 +38,15 @@ textarea, input {
     box-shadow: 0px 0px 11px 0px rgba(175, 175, 175, 0.75);
     color: black;
     display: flex; gap: 10px; 
-    margin-bottom: 20px; 
+    margin-bottom: 10px; 
     background-color: white;
     padding: 10px;
     border-radius: 7px;
+}
+
+pre{
+    border-radius: 7px;
+    padding: 10px;
+    color: black;
+    background-color: white;
 }

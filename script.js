@@ -13,7 +13,7 @@ let blockCount = 0;
 				<input type="text" class="dialogue-speaker">
 				<label>Lines (one per line):</label>
 				<textarea class="dialogue-lines" rows="4"></textarea>
-				<label>Choices (optional, one per line):</label>
+				<label>Choices (optional, one per line. MAX 3):</label>
 				<textarea class="dialogue-choices" rows="3"></textarea>
 				<div class="after-choices-container"></div>
 				<button onclick="addAfterChoice(this)">Add Follow-up to Choices</button>
