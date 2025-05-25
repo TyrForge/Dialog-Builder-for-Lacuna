@@ -11,8 +11,8 @@
 ## 3. Set Lines
   - For having the lines actually appear in the dialog box you have to type lines to the "Lines" field.
   - Every new line means that the player has to press "E" or "Space" or "Mouse 1" to continue so for example:
-     -"Hello"
-     -"How Are you?"
+     - "Hello"
+     - "How Are you?"
   - Means after the "Hello" user has to press E once to go to the next line
 
 ## 4. Set Choices
