@@ -47,7 +47,39 @@ let blockCount = 0;
 				return;
 			}
 			const lua = parseDialogueBlock(root);
-			document.getElementById("output").textContent = "local dialogue = " + lua;
+			const fullScript = `
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+
+local ShowDialogue = ReplicatedStorage:FindFirstChild("ShowDialogue") or Instance.new("RemoteEvent", ReplicatedStorage)
+ShowDialogue.Name = "ShowDialogue"
+
+local ChoiceSelected = ReplicatedStorage:FindFirstChild("ChoiceSelected") or Instance.new("RemoteEvent", ReplicatedStorage)
+ChoiceSelected.Name = "ChoiceSelected"
+
+local DialogueDataStore = require(game.ServerScriptService:WaitForChild("DialogueDataStore"))
+
+local dialogue = ${lua}
+
+local function onPromptTriggered(player)
+	ShowDialogue:FireClient(player, dialogue)
+end
+
+local prompt = script.Parent
+if prompt and prompt:IsA("ProximityPrompt") then
+	prompt.Triggered:Connect(onPromptTriggered)
+else
+	warn("This script must be a child of a ProximityPrompt.")
+end
+
+ChoiceSelected.OnServerEvent:Connect(function(player, dialogueID, choiceIndex)
+	print(player.Name, "chose option", choiceIndex, "for dialogue", dialogueID)
+	DialogueDataStore.SaveChoice(player, dialogueID, choiceIndex)
+end)
+`;
+
+		document.getElementById("output").textContent = fullScript;
+
 		}
 
 		function parseDialogueBlock(block) {
